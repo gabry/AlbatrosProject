@@ -22,11 +22,11 @@ Partial Class FormMain
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Me.pctLogo = New System.Windows.Forms.PictureBox()
+        Me.components = New System.ComponentModel.Container
+        Me.pctLogo = New System.Windows.Forms.PictureBox
         Me.tmrLoad = New System.Windows.Forms.Timer(Me.components)
-        Me.CustomKeyboard1 = New AlbatrosProject.CustomKeyboard()
-        Me.Search = New AlbatrosProject.TitleSearch()
+        Me.CustomKeyboard1 = New AlbatrosProject.CustomKeyboard
+        Me.Search = New AlbatrosProject.TitleSearch
         CType(Me.pctLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -64,7 +64,7 @@ Partial Class FormMain
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1372, 714)
+        Me.ClientSize = New System.Drawing.Size(1514, 714)
         Me.Controls.Add(Me.CustomKeyboard1)
         Me.Controls.Add(Me.Search)
         Me.Controls.Add(Me.pctLogo)

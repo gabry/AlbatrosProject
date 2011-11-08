@@ -5,10 +5,13 @@
 
     'Public Sub New()
     '    InitializeComponent()
+
+
     'End Sub
 
     Private Sub FormMain_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim nTimer As Long
+
 
         SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.DoubleBuffer Or ControlStyles.ResizeRedraw Or ControlStyles.UserPaint, True)
 
@@ -17,6 +20,7 @@
         Select Case ConfigOpt.GetOption("TipoFrequenza")
             Case "S"
                 nTimer = 1000
+
             Case "M"
                 nTimer = 60000
             Case "O"
@@ -27,10 +31,10 @@
         tmrLoad.Enabled = True
 
         Me.BackColor = Color.Black
-        Me.Width = ScreenWidth / 2
-        Me.Height = ScreenHeight / 2
+        Me.Width = ScreenWidth
+        Me.Height = ScreenHeight
         Me.CenterToScreen()
-        'LoadImage()
+        LoadImage()
         ResizeControl()
 
       
@@ -42,53 +46,60 @@
     End Sub
   
 
-    'Private Sub LoadImage()
+    Private Sub LoadImage()
 
-    '    Dim sSql As String
-    '    Dim ds As DataSet
-    '    Dim dw As DataView
-    '    Dim sFile() As String
 
-    '    DbObject.DirTextDB = ApplicationDir
+        Dim sSql As String
+        Dim ds As DataSet
+        Dim dataRowCurrent As DataRowView
+        Dim dw As DataView
+        Dim nTop As Integer
+        Dim sNameImage As String
+        Dim sFile() As String
+        Dim i As Integer
 
-    '    sSql = "SELECT * FROM [FOTO.txt] where ORDINAMENTO='1'"
+        DbObject.DirTextDB = ApplicationDir
 
-    '    DbObject.DirTextDB = ApplicationDir '& "\Dbdati.txt"
+        sSql = "SELECT * FROM [FOTO.txt] where ORDINAMENTO='1'"
 
-    '    ds = DbObject.GetFileTxtDataset(sSql)
+        DbObject.DirTextDB = ApplicationDir '& "\Dbdati.txt"
 
-    '    dw = New DataView(ds.Tables(0))
+        ds = DbObject.GetFileTxtDataset(sSql)
 
-    '    ReDim sFile(dw.Count - 1)
+        dw = New DataView(ds.Tables(0))
 
-    'End Sub
+        ReDim sFile(dw.Count - 1)
+
+
+
+    End Sub
     Public Sub ResizeControl()
-        ' Logo (top)
-        Dim sLogo As String = PathImage & "top.jpg"
-        Dim bm_source As New Bitmap(sLogo)
+        'Dim sLogo As String = PathImage & "logo.jpg"
+        'Dim bm_source As New Bitmap(sLogo)
 
-        pctLogo.Width = (ScreenWidth * 80) / 100
-        pctLogo.Height = (ScreenHeight * 20) / 100
+        'pctLogo.Width = (ScreenWidth / 100) * 20
+        'pctLogo.Height = (Height / 100) * 20
 
-        Dim bm_dest As New Bitmap(CInt(pctLogo.Width - 10), CInt(pctLogo.Height))
+        'Dim bm_dest As New Bitmap(CInt(pctLogo.Width - 10), CInt(pctLogo.Height))
 
-        ' Make a Graphics object for the result Bitmap.
-        Dim gr_dest As Graphics = Graphics.FromImage(bm_dest)
+        '' Make a Graphics object for the result Bitmap.
+        'Dim gr_dest As Graphics = Graphics.FromImage(bm_dest)
 
-        ' Copy the source image into the destination bitmap.
-        gr_dest.DrawImage(bm_source, 0, 0, bm_dest.Width + 1, bm_dest.Height + 1)
+        '' Copy the source image into the destination bitmap.
+        'gr_dest.DrawImage(bm_source, 0, 0, bm_dest.Width + 1, bm_dest.Height + 1)
 
-        ' Display the result.
-        pctLogo.Image = bm_dest
+        '' Display the result.
+        'pctLogo.Image = bm_dest
 
-        ' Filter (bottom)
-        Search.Height = (ScreenHeight * 80) / 100
-        Search.Width = (ScreenWidth * 40) / 100
+      
+
+        Search.Height = (ScreenHeight / 100) * 70
+        Search.Width = (ScreenWidth / 100) * 36
         'Search.ResizeControl()
 
         Search.CustomSearch1.Height = Search.Height
         Search.CustomSearch1.Width = Search.Width
-        Search.CustomSearch1.ResizeControl(Search.Height, Search.Width)
+        Search.CustomSearch1.ResizeControl(Search.CustomSearch1.Height, Search.Width)
         'cd.Width = ScreenWidth
         'cd.Height = 552
         cd.Width = 1
@@ -99,8 +110,10 @@
         cd.Visible = False
         AddHandler cd.btnClose.Click, AddressOf Chiudi
 
+
         AddHandler Search.CustomSearch1.txtRif.Click, AddressOf SlideKeyboard
-        AddHandler Search.CustomSearch1.txtRif.LostFocus, AddressOf hideKeyboard
+        AddHandler Search.CustomSearch1.txtRif.LostFocus, AddressOf HideKeyboard
+
 
         Me.Controls.Add(cd)
 
@@ -183,13 +196,10 @@
     'End Sub
 
 
-    'Private Sub tmrLoad_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoad.Tick
-    '    tmrLoad.Enabled = False
-    '    LoadImage()
-    '    tmrLoad.Enabled = True
-    'End Sub
-
-    Private Sub Search_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Search.Load
-
+    Private Sub tmrLoad_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmrLoad.Tick
+        tmrLoad.Enabled = False
+        LoadImage()
+        tmrLoad.Enabled = True
     End Sub
+
 End Class

@@ -11,16 +11,19 @@
 
         InitializeComponent()
 
+
         _FltType = fltType
+
+
 
     End Sub
     Private Sub FormFilter_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         '  Me.CenterToScreen()
+
         Me.Left = ScreenWidth / 3
         Me.Top = ScreenHeight / 3
-        Me.Width = (ScreenWidth * 40) / 100
-        Me.Height = (ScreenHeight * 70) / 100
+        Me.Width = ScreenWidth / 100 * 40
         Loadfilter(_FltType)
 
     End Sub
@@ -32,6 +35,7 @@
         Dim dw As DataView
         Dim tn As Ai.Control.TreeNode
        
+
         mltMain.Columns.Clear()
         mltMain.Nodes.Clear()
         mltMain.FullRowSelect = True

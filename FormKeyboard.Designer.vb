@@ -22,10 +22,10 @@ Partial Class FormKeyboard
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        Me.components = New System.ComponentModel.Container
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Keyboardcontrol1 = New KeyboardClassLibrary.Keyboardcontrol()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Keyboardcontrol1 = New KeyboardClassLibrary.Keyboardcontrol
+        Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.SuspendLayout()
         '
         'Timer1
@@ -34,9 +34,9 @@ Partial Class FormKeyboard
         'Keyboardcontrol1
         '
         Me.Keyboardcontrol1.KeyboardType = KeyboardClassLibrary.BoW.Standard
-        Me.Keyboardcontrol1.Location = New System.Drawing.Point(12, -2)
+        Me.Keyboardcontrol1.Location = New System.Drawing.Point(27, 12)
         Me.Keyboardcontrol1.Name = "Keyboardcontrol1"
-        Me.Keyboardcontrol1.Size = New System.Drawing.Size(962, 288)
+        Me.Keyboardcontrol1.Size = New System.Drawing.Size(993, 282)
         Me.Keyboardcontrol1.TabIndex = 0
         '
         'TextBox1
@@ -50,11 +50,11 @@ Partial Class FormKeyboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1132, 274)
+        Me.ClientSize = New System.Drawing.Size(1132, 266)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Keyboardcontrol1)
         Me.Name = "FormKeyboard"
-        Me.Opacity = 0.0R
+        Me.Opacity = 0
         Me.Text = "FormKeyboard"
         Me.ResumeLayout(False)
         Me.PerformLayout()
